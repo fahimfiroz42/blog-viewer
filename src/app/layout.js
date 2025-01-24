@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <KindeProvider>
-          <main className='min-h-screen'>
+          <main className='min-h-screen bg-slate-950'>
           <Header />
           {children}
           

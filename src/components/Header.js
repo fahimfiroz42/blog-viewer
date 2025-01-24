@@ -16,7 +16,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-slate-900 text-white p-4">
+    <header className="bg-slate-900 text-white  p-4">
       <nav className="flex justify-between text-white items-center ">
         <div>
           <h1 className="text-xl font-bold">Blogify</h1>
