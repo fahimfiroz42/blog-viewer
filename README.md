@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog Viewer Application
 
-## Getting Started
+A simple blog viewer application built with Next.js that demonstrates routing, server and client components, dynamic routes, authentication using Kinde, and data fetching.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Home Page**: Displays a list of blog posts fetched from a mock API with clickable links for detailed views.
+- **Blog Details Page**: A dynamic route that displays individual blog post details.
+- **Profile Page**: A protected page using Kinde authentication that redirects users to the login page if not authenticated.
+- **Header Navigation**: Links to "Home" and "Profile" pages, with login/logout buttons depending on authentication status.
+- **Responsive Design**: Styled with Tailwind CSS for a clean and responsive user interface.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technologies Used
 
-## Learn More
+- [Next.js](https://nextjs.org/)
+- [Kinde Auth](https://kinde.com/) for user authentication
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- Mock API for blog posts:
+  - `GET https://jsonplaceholder.typicode.com/posts` (fetch all posts)
+  - `GET https://jsonplaceholder.typicode.com/posts/[id]` (fetch a specific post)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation and Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/blog-viewer.git
+   cd blog-viewer
