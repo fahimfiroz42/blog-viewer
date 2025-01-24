@@ -10,7 +10,7 @@ export default function HomePage() {
     const fetchPosts = async () => {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts');
       const data = await response.json();
-      setPosts(data.slice(0, 10)); // Fetch only the first 10 posts
+      setPosts(data); // Fetch only the first 10 posts
     };
 
     fetchPosts();
