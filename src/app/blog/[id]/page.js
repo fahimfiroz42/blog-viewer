@@ -2,21 +2,32 @@
 
 import { useEffect, useState } from 'react';
 
-export default function BlogDetailsPage({ params }) {
-  const { id } = params;
+export default function BlogDetailsPage({ params: paramsPromise }) {
+  const [params, setParams] = useState(null);
   const [post, setPost] = useState(null);
 
   useEffect(() => {
+    const unwrapParams = async () => {
+      const resolvedParams = await paramsPromise;
+      setParams(resolvedParams);
+    };
+
+    unwrapParams();
+  }, [paramsPromise]);
+
+  useEffect(() => {
+    if (!params) return;
+
     const fetchPost = async () => {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
       const data = await response.json();
       setPost(data);
     };
 
     fetchPost();
-  }, [id]);
+  }, [params]);
 
-  if (!post) {
+  if (!params || !post) {
     return <p>Loading...</p>;
   }
 

@@ -7,7 +7,7 @@ export default function Header() {
   const { isAuthenticated } = useKindeAuth();
 
   return (
-    <header className="p-4 ">
+    <header className="bg-slate-900  p-4 ">
       <nav className="flex justify-between">
         <div>
           <Link href="/" className="px-4">
@@ -20,11 +20,11 @@ export default function Header() {
         <div>
           {isAuthenticated ? (
             <LogoutLink>
-              <button className="bg-red-500 text-white px-4 py-2">Logout</button>
+              <button className="bg-blue-500 rounded-3xl text-white px-4 py-2">Logout</button>
             </LogoutLink>
           ) : (
             <LoginLink>
-              <button className="bg-blue-500 text-white px-4 py-2">Login</button>
+              <button className="bg-blue-500 rounded-3xl text-white px-4 py-2">Login</button>
             </LoginLink>
           )}
         </div>
