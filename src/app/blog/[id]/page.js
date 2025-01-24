@@ -1,20 +1,29 @@
-import Link from "next/link";
+'use client';
 
-async function fetchPost(id) {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    return response.json();
+import { useEffect, useState } from 'react';
+
+export default function BlogDetailsPage({ params }) {
+  const { id } = params;
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const data = await response.json();
+      setPost(data);
+    };
+
+    fetchPost();
+  }, [id]);
+
+  if (!post) {
+    return <p>Loading...</p>;
   }
-  
-  export default async function BlogDetailsPage({ params }) {
-    const { id } = params;
-    const post = await fetchPost(id);
-  
-    return (
-      <main className="p-4">
-        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-        <p>{post.body}</p>
-        <Link href="/" className="text-blue-500 mt-4 inline-block">Back to Home</Link>
-      </main>
-    );
-  }
-  
+
+  return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+      <p>{post.body}</p>
+    </div>
+  );
+}
